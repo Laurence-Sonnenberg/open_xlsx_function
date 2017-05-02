@@ -20,6 +20,7 @@ open_xlsx <- function (nameVector,
                        tableList, 
                        workBookName, 
                        colNames = TRUE,
+                       RowNames = FALSE,
                        loadWorkBook = FALSE,
                        replaceSheets = FALSE) { 
   
@@ -95,7 +96,7 @@ open_xlsx <- function (nameVector,
       
       # write data frames to sheets
       for (i in 1:length(nameVector)) {
-        openxlsx::writeData(wb, nameVector[i], tableList[[i]], colNames = colNames)
+        openxlsx::writeData(wb, nameVector[i], tableList[[i]], colNames = colNames, rowNames = rowNames)
       }
     )
   }
